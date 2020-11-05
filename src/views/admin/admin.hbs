@@ -1,0 +1,334 @@
+<link rel="stylesheet" href="css/admin.css" />
+<body>
+  {{! <ul class="tabs #e0f7fa cyan lighten-5"> }}
+  {{! <li class="tab col s3"> }}
+  {{! <a href="#test1"> }}
+  {{! Usuarios }}
+  {{! </a> }}
+  {{! </li> }}
+  {{! <li class="tab col s3"> }}
+  {{! <a href="#test2"> }}
+  {{! Postales }}
+  {{! </a> }}
+  {{! </li> }}
+  {{! <li class="tab col s3"> }}
+  {{! <a href="#test3"> }}
+  {{! Estadisticas }}
+  {{! </a> }}
+  {{! </li> }}
+  {{! <li class="tab col s3"> }}
+  {{! <a href="./../functions/generar_pdf.php" target="_blank"> }}
+  {{! Generar Reporte }}
+  {{! </a> }}
+  {{! </li> }}
+  {{! </ul> }}
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <form id="formPostal" enctype="multipart/form-data">
+        <div class="row">
+          <div class="input-field col s12">
+            <select id="selector">
+              <option value="Amor">Amor</option>
+              <option value="Fechas_fest">Fechas Festivas</option>
+              <option value="Paisajes">Paisajes</option>
+              <option value="Comida">Comida</option>
+              <option value="Vintage">Vintage</option>
+              <option value="Otros">Otros</option>
+            </select>
+            <label>
+              Categoria
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="file-field input-field col s12">
+            <div class="btn">
+              <span>
+                Seleccionar Archivo
+              </span>
+              <input type="file" name="uploadedFile" id="uploadedFile" />
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12">
+            <button type="submit" name="action" class="btn">
+              Agregar Postal
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <a class="right">
+              *Formatos Aceptados:(gif,jpg,png)
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="test1" class="col s12">
+    <div class="container">
+      <div class="tabla-header">
+        <p class="titulo">
+          Usuarios
+        </p>
+
+        <div class="div-search">
+          <input
+            id="buscadorU"
+            placeholder="Busqueda"
+            type="text"
+            class="search"
+          />
+          <button>
+            <i class="material-icons">
+              search
+            </i>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center">
+          <table class="highlight" id="mitabla">
+            <thead>
+              <tr>
+                <th class="headFoto">
+                  Foto
+                </th>
+                <th class="headNombre">
+                  Nombre
+                </th>
+                <th class="headCorreo">
+                  Correo
+                </th>
+                <th class="headNac">
+                  Nacimiento
+                </th>
+                <th>
+                  Acción
+                </th>
+              </tr>
+            </thead>
+            <tbody id="cargadorU">
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="leftArrow">
+          <i class="material-icons arrow">
+            navigate_before
+          </i>
+        </button>
+        <div class="noPage">
+          <i class="texto" id="noPage">
+            1
+          </i>
+        </div>
+        <button id="rightArrow">
+          <i class="material-icons arrow">
+            navigate_next
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="test2" class="col s12">
+    <div class="container">
+      <div class="tabla-header">
+        <p class="titulo">
+          Postales
+        </p>
+
+        <div class="addButton modal-trigger" data-target="modal1">
+          <i class="add material-icons">
+            add
+          </i>
+        </div>
+        <div class="div-search">
+          <input
+            id="buscadorP"
+            placeholder="Busqueda"
+            type="text"
+            class="search"
+          />
+          <button>
+            <i class="material-icons">
+              search
+            </i>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center">
+          <table class="highlight" id="mitabla">
+            <thead>
+              <tr>
+                <th class="headPostal">
+                  Postal
+                </th>
+                <th class="headCategoria">
+                  Categoria
+                </th>
+                <th class="headDescripcion">
+                  Descripción
+                </th>
+                <th>
+                  Acción
+                </th>
+              </tr>
+            </thead>
+            <tbody id="cargadorP">
+              <tr>
+                <th class="postalContainer">
+                  <img
+                    src="postales/Fechas Festivas/dia_muertos_01.gif"
+                    alt="algo"
+                  />
+                </th>
+                <th class="categoria">
+                  Fechas Festivas
+                </th>
+                <th class="descripcion">
+                  Día de Muertos
+                </th>
+                <th class="icono">
+                  <i class="material-icons">
+                    delete
+                  </i>
+                </th>
+                <tr>
+                  <th class="postalContainer">
+                    <img
+                      src="postales/Fechas Festivas/dia_muertos_01.gif"
+                      alt="algo"
+                    />
+                  </th>
+                  <th class="categoria">
+                    Fechas Festivas
+                  </th>
+                  <th class="descripcion">
+                    Día de Muertos
+                  </th>
+                  <th class="icono">
+                    <i class="material-icons">
+                      delete
+                    </i>
+                  </th>
+                </tr>
+              </tr>
+              <tr>
+                <th class="postalContainer">
+                  <img
+                    src="postales/Fechas Festivas/dia_muertos_01.gif"
+                    alt="algo"
+                  />
+                </th>
+                <th class="categoria">
+                  Fechas Festivas
+                </th>
+                <th class="descripcion">
+                  Día de Muertos
+                </th>
+                <th class="icono">
+                  <i class="material-icons">
+                    delete
+                  </i>
+                </th>
+              </tr>
+              <tr>
+                <th class="postalContainer">
+                  <img
+                    src="postales/Fechas Festivas/dia_muertos_01.gif"
+                    alt="algo"
+                  />
+                </th>
+                <th class="categoria">
+                  Fechas Festivas
+                </th>
+                <th class="descripcion">
+                  Día de Muertos
+                </th>
+                <th class="icono">
+                  <i class="material-icons">
+                    delete
+                  </i>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="leftArrowP">
+          <i class="material-icons arrow">
+            navigate_before
+          </i>
+        </button>
+        <div class="noPage">
+          <i class="texto" id="noPageP">
+            1
+          </i>
+        </div>
+        <button id="rightArrowP">
+          <i class="material-icons arrow">
+            navigate_next
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="test3" class="col s12">
+    <form class="center-align">
+      <a
+        button
+        class="btn-large #1565c0 blue darken-3"
+        href="../functions/grafica_categorias_mas_gustadas.php"
+        target="_blank"
+      >
+        Categorias mas gustadas
+      </a>
+      <a
+        button
+        class="btn-large #1565c0 blue darken-3"
+        href="../functions/grafica_envios_semanales.php"
+        target="_blank"
+      >
+        Envios semanales
+      </a>
+      <a
+        button
+        class="btn-large #1565c0 blue darken-3"
+        href="../functions/grafica_generos.php"
+        target="_blank"
+      >
+        Genero
+      </a>
+      <a
+        button
+        class="btn-large #1565c0 blue darken-3"
+        href="../functions/grafica_postales_mas_gustadas.php"
+        target="_blank"
+      >
+        Postales mas gustadas
+      </a>
+    </form>
+  </div>
+</body>
+<script src="js/Parsers.js"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"
+></script>
+
+<script src="js/admin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"
+></script>

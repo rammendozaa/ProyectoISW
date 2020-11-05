@@ -1,0 +1,82 @@
+.myForm{
+  display:flex;
+  justify-content:center; 
+  align-items:center;
+  margin-top:7rem;
+}
+.myForm2{
+  width: 95%;
+}
+[type="radio"]:checked + span:after,
+ 
+[type="radio"].with-gap:checked + span:before,
+ 
+[type="radio"].with-gap:checked + span:after {
+ 
+  border: 2px solid #226fbb;
+ 
+} 
+[type="radio"]:checked + span:after,
+ 
+[type="radio"].with-gap:checked + span:after {
+ 
+  background-color: #226fbb;
+ 
+}
+
+.datepicker-date-display {
+  
+  background-color:#23374b!important;
+ 
+}
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+  color: #1089ff;
+
+}
+.datepicker-day-button:focus {
+  background-color:#226fbb;
+}
+.datepicker-table td.is-selected {
+  background-color: #226fbb;
+
+}
+
+.btn {
+  background-color: #226fbb;
+  border-radius: 20px;
+  text-transform: none;
+}
+
+.btn:hover {
+  background-color: #1089ff;
+}
+
+.input-field input:focus + label {
+  color: #226fbb !important;
+}
+/* label underline focus color */
+.input-field input:focus {
+  border-bottom: 1px solid #226fbb !important;
+}
+.input-field .prefix.active{
+  color: #226fbb !important;
+}
+
+.error{
+  color: #f44336 !important;
+
+}
+.error input{
+
+  border-bottom: 1px solid #f44336 !important;
+}
+.error label{
+  color:#f44336 !important;
+}
+
+.genero{
+  margin-bottom:1rem;
+}

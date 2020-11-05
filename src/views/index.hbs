@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/css/index.css" />
+
+<div class="modal" id="login">
+  <div class="modal-content center">
+    <form id="datos">
+      <div class="input-field">
+        <i class="fas fa-envelope prefix"></i>
+        <input type="text" id="usuario" name="usuario" />
+        <label for="usuario">
+          Email
+        </label>
+      </div>
+
+      <div class="input-field">
+        <i class="fas fa-key prefix"></i>
+        <input
+          type="password"
+          id="contrasena"
+          name="contrasena"
+          data-validetta="required"
+        />
+        <label for="contrasena">
+          Contraseña
+        </label>
+      </div>
+
+      <div class="enviar">
+        <button class="btn" type="submit">
+          Entrar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <div class="col s12 center-align">
+    <h4 id="destacado">
+      Hola Mundo
+    </h4>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"
+></script>
+<script src="/js/index.js"></script>

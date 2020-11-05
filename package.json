@@ -1,0 +1,38 @@
+{
+  "name": "proyectoisw",
+  "version": "1.0.0",
+  "description": "Construir un sistema que permita al Gobierno de la Ciudad de México realizar el censo de árboles para conocer la ubicación precisa y las especies que existen en sus alcaldías así como el estado de estos. También se requiere ofrecer al ciudadano la posibilidad de presentar solicitudes de servicios y reportes asociados al arbolado y que tenga la oportunidad de dar seguimiento a sus solicitudes desde el momento en que se levanta el servicio hasta que ha sido atendido.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon  --exec babel-node src/index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rammendozaa/ProyectoISW.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rammendozaa/ProyectoISW/issues"
+  },
+  "homepage": "https://github.com/rammendozaa/ProyectoISW#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^3.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "mongodb": "^3.6.2",
+    "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.6",
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+    "jest": "^26.6.1"
+  }
+}

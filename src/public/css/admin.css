@@ -1,0 +1,225 @@
+/*header-icons*/
+#nav-li {
+  margin: 0 0.5rem;
+  height: 64px;
+}
+#nav-li i:hover {
+  cursor: pointer;
+}
+.tabs {
+  height: 100%;
+  background-color: transparent;
+}
+.tabs .tab {
+  height: 100%;
+}
+.tabs .tab a:hover {
+  color: white;
+}
+.tab a.active {
+  color: white !important;
+}
+.tabs .tab a {
+  color: #787878;
+}
+.tabs .tab a:focus,
+.tabs .tab a:focus.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.tabs .indicator {
+  background-color: white;
+}
+/*.tabs{*/
+/*height:0;*/
+/*margin:0 !important;*/
+/*}*/
+
+.container {
+  margin-top: 2vh;
+  width: 90%;
+  max-width: none;
+  padding: 1rem 3rem;
+  background-color: #e0f7fa;
+  height: 90vh;
+}
+.tabla-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 1rem 0 0 0;
+}
+.div-search {
+  display: flex;
+  text-align: center;
+}
+
+button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  float: right;
+}
+button:active{
+  background-color: Transparent;
+
+}
+button:focus{
+  background-color: Transparent;
+
+}
+button i {
+  color: #226fbb;
+}
+/* label underline focus color */
+.search:focus {
+  border-bottom: 1px solid #226fbb !important;
+}
+.search {
+  border-bottom: 0.2rem solid #23374b;
+  margin: 0;
+  float: left;
+  width: 80% !important;
+}
+.titulo {
+  font-size: 1.8rem;
+  color: #226fbb;
+}
+/*Tabla Primera Seccion*/
+#mitabla {
+  overflow: hidden;
+}
+.imgContainer {
+  height: 15vh;
+  padding: 0.5rem;
+  width: 15%;
+}
+.imgContainer img {
+  border-radius: 50%;
+  vertical-align: top;
+  height: 15vh;
+  width: 50%;
+}
+.nombre {
+  width: 20%;
+}
+.correo {
+  width: 30%;
+}
+.nacimiento {
+  width: 20%;
+}
+.icono {
+  width: 15%;
+}
+.icono i {
+  color: #ec5f67;
+  font-size: 4vh;
+}
+.icono i:hover {
+  cursor: pointer;
+}
+th {
+  text-align: center;
+}
+@media (max-width: 800px) {
+  .nombre {
+    display: none;
+  }
+  .headNombre {
+    display: none;
+  }
+  .imgContainer {
+    display: none;
+  }
+  .headFoto {
+    display: none;
+  }
+  .nacimiento {
+    display: none;
+  }
+  .headNac {
+    display: none;
+  }
+  .titulo {
+    width: 100%;
+  }
+  .tabla-header {
+    justify-content: center;
+  }
+}
+.buttons{
+  display:flex;
+  bottom:0;
+  right:0;
+
+  justify-content:flex-end;
+}
+.buttons button{
+  margin:0 3rem;
+}
+.arrow{
+  font-size:5vh;
+}
+
+.texto{ 
+  position:relative;
+  top:2px;
+  right:2px;
+  font-size:3vh;
+  color:white; 
+}
+.noPage{
+  position:relative;
+  left:4px; 
+  border-radius:50%;
+  text-align:center;
+  width:5vh;
+  height:5vh;
+  background-color: #226fbb;
+}
+.addButton{
+  position:relative;
+  border-radius:50%;
+  text-align:center;
+  width:50px;
+  height:50px;
+  background-color: #226fbb;
+}
+.addButton:hover{
+  cursor:pointer;
+}
+.add{
+  font-size:2.5rem;
+  color:white;
+  position:relative;
+  top:4px;
+}
+.postalContainer {
+  height: 15vh;
+  padding: 0.5rem;
+  width: 33%;
+}
+.postalContainer img {
+  border-radius: 10%;
+  vertical-align: top;
+  height: 15vh;
+  width: 50%;
+}
+.categoria{
+  width:20%;
+
+}
+.descripcion{
+  width:33%;
+
+}
+.select-wrapper input.select-dropdown:focus{
+ border-bottom : 1px solid #226fbb;
+}
+.dropdown-content li > a, .dropdown-content li > span{
+  color:#226fbb;
+}

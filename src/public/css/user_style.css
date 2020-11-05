@@ -1,0 +1,51 @@
+.sidenav .user-view {
+  background-color: #23374b;
+  display: flex;
+  padding: 10px;
+  align-content: center;
+  justify-content: center;
+}
+
+.sidenav .user-view .circle {
+  width: 100px;
+  height: 100px;
+}
+
+.tabContent {
+  width: 100%;
+  height: auto;
+}
+
+.sidenav.sidenav-fixed {
+  top: 64px;
+}
+
+i{
+  color: #226fbb;
+  cursor: default;
+}
+
+.menu:hover{
+  background-color: #e2e2e2;
+}
+
+.tablink {
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 0px;
+}
+
+.selected{
+  background-color: #d4d4d4;
+}
+
+.tablink:hover,
+.tablink:focus{
+  background-color: #e2e2e2;
+}
+
+.thumbnail{
+  width: 100px;
+}

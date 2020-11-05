@@ -1,0 +1,45 @@
+html {
+  background-color:white; 
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Montserrat", sans-serif;
+}
+/*############################################################NAV###############################################################*/
+.nav-wrapper {
+  overflow:hidden;
+  background-color: #25d366;
+}
+
+#nav-li:hover {
+  text-decoration: underline;
+}
+
+.nav-wrapper > li:hover {
+  text-decoration: underline;
+}
+
+.brand-logo {
+  font-family: "Nunito", sans-serif;
+  margin: 10px;
+}
+
+.btn {
+  background-color: #226fbb;
+  border-radius: 20px;
+  text-transform: none;
+}
+
+.btn:hover {
+  background-color: #1089ff;
+}
+.arrowBack{
+  margin-left:1rem;
+}
+@media(min-width:993px){
+  .arrowBack{
+    display:none !important;
+  }
+}

@@ -1,0 +1,10 @@
+      .tabs .tab a {
+        font-weight: 800;
+        color: black; /*cambiamos el color de la letra*/
+      }
+      ul.tabs div.indicator {
+        background: black;
+        height: 3px;
+      }
+
+

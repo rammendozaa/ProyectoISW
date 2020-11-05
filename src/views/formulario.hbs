@@ -1,0 +1,148 @@
+<link rel="stylesheet" href="css/formulario.css"></link> 
+<div class="myForm container row">
+
+  <form class="col s12" id="formulario">
+    <div class="row">
+      <!-- Campo Nombre -->
+      <div class="input-field col s12 l4" id="div_nombre">
+        <i class="fas fa-user-circle prefix"></i>
+        <input id="nombre" type="text" name="nombre" />
+        <label for="nombre">
+          Nombre
+        </label>
+	<span class="helper-text error" id="span_nombre">
+        </span>
+
+      </div>
+      <!-- Campo Primer Apellido -->
+      <div class="input-field col s12 l4" id="div_primerAp">
+        <input id="primerAp" type="text" name="primerAp" />
+        <label for="primerAp">
+          Primer Apellido
+        </label>
+	<span class="helper-text error" id="span_primerAp">
+        </span>
+
+      </div>
+      <!-- Campo Segundo Apellido -->
+      <div class="input-field col s12 l4" id="div_segundoAp">
+        <input id="segundoAp" type="text" name="segundoAp" />
+        <label for="segundoAp">
+          Segundo Apellido*
+        </label>
+        <span class="helper-text">
+          Opcional*
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Campo Contrasena -->
+      <div class="input-field col s12 m6" id="div_password">
+        <i class="fas fa-key prefix"></i>
+        <input id="password" type="password" name="contrasena" />
+        <label for="password">
+          Contraseña
+        </label>
+	<span class="helper-text error" id="span_password">
+        </span>
+
+      </div>
+      <!-- Campo Correo -->
+      <div class="input-field col s12 m6" id="div_correo">
+        <i class="fas fa-at prefix"></i>
+        <input type="email" id="correo" name="correo" />
+        <label for="correo">
+          Correo
+        </label>
+	<span class="helper-text error" id="span_correo">
+        </span>
+
+      </div>
+    </div>
+    <div class="row center">
+      <!-- Campo Genero -->
+      <p class="genero">
+        Genero:
+      </p>
+
+      <div class="col s4">
+        <label>
+          <input
+            class="with-gap"
+            name="group1"
+            type="radio"
+            value="Hombre"
+            checked
+          />
+          <span>
+            Hombre
+          </span>
+        </label>
+      </div>
+      <div class="col s4">
+        <label>
+          <input class="with-gap" name="group1" type="radio" value="Mujer" />
+          <span>
+            Mujer
+          </span>
+        </label>
+      </div>
+      <div class="col s4">
+        <label>
+          <input
+            class="with-gap"
+            name="group1"
+            type="radio"
+            value="Otro"
+            checked
+          />
+          <span>
+            Otro
+          </span>
+        </label>
+      </div>
+
+      <div class="row">
+        <div class="row"></div>
+        <div class="row"></div>
+        <!-- Campo Fecha Nacimiento -->
+        <div class="col s12 center" id="div_fechaNac">
+          Fecha de Nacimiento
+          <i class="fas fa-calendar-alt prefix"></i>
+          <input id="fechaNac" type="text" class="datepicker" name="date" />
+	  <span class="helper-text error" id="span_fechaNac">
+        </span>
+
+          {{! ?> }}
+        </div>
+        <div class="row"></div>
+        <div class="row"></div>
+        <!-- Boton de Envio -->
+        <div class="col s12 center">
+          <button
+            class="btn waves-effect waves-light btn-large"
+            type="submit"
+            name="action"
+          >
+            Enviar
+            <i class="material-icons right">
+              send
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="js/Parsers.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"
+></script>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.min.js"
+></script>
+
+<script src="js/formulario.js"></script>

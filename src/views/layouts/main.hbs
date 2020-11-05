@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Nunito:700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    {{>header}} 
+
+    <main>
+      {{{body}}}
+    </main>
+
+    {{! <script src="./js/mySlide.js"></script> }}
+    {{! <script src="./js/modal.js"></script> }}
+
+    <script
+      src="https://kit.fontawesome.com/ed9493b41a.js"
+      crossorigin="anonymous"
+    ></script>
+
+    {{! <script src ="./js/jquery-3.4.1.min.js"></script> }}
+    {{! <script> }}
+    {{! $(document).ready(function(){ }}
+    {{! $('.sidenav').sidenav(); }}
+    {{! }); }}
+    {{! </script> }}
+    <!--cosas para que funciine sweetAlert-->
+      <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+      ></script>
+      <script  src="js/header.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+
+    <!--Con jquery $(document).ready no es necesario poner los js hasta abajo , execepto el 
+  archivo myslide.js-->
+
+    {{! <script src="./js/login.js"></script> }}
+    {{! <script> }}
+
+    {{! $(document).ready(function(){ }}
+
+    {{! $('.modal').modal(); }}
+
+    {{! }); }}
+
+    {{! </script> }}
+  </body>
+</html>
