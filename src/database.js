@@ -1,4 +1,4 @@
-import PostalesDAO from  "./dao/postalesDAO.js"
+import arbolesDAO from  "./dao/arbolesDAO.js"
 import usuariosDao from "./dao/usersDAO.js"
 import adminsDao from "./dao/adminDao.js"
 import {MongoClient} from "mongodb"
@@ -7,7 +7,7 @@ export default class database{
 static   configDb(){
   var promise= MongoClient.connect(
   
-  process.env.CARDAWAY_DB_URI,
+  process.env.PYR_DB_URI,
   { useUnifiedTopology: true ,
   },
 )
@@ -19,7 +19,7 @@ static   configDb(){
   .then((client)=>{
   this.client=client
   usuariosDao.injectDB(client)
-  PostalesDAO.injectDB(client)
+  arbolesDAO.injectDB(client)
   adminsDao.injectDB(client)
   console.log("Database Connected") 
 

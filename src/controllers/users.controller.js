@@ -24,7 +24,7 @@ export default class userController {
     }
     let response = await adminDao.login(req.body);
     if (response.loginResult == 1) {
-      req.session.admin=true
+      req.session.admin = true;
       return res.json({ success: true, msg: req.body.username });
     } else if (response.loginResult == 0) {
       return res.json({ success: false, msg: "Contraseña Incorrecta" });
@@ -45,9 +45,19 @@ export default class userController {
       })(req, res);
     }
   }
+static  renderPerfil(req,res){
+  if(req.user){
+    res.render('usuario/perfil');
+  }
+  else{
+    res.render('index')
+  }
 }
-
-
+static logOut(req,res){
+  req.logout();
+  res.redirect('/');
+}
+}
 
 function validarCampos(json) {
   let ret = {};

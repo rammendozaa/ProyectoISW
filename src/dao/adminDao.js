@@ -7,8 +7,8 @@ export default class AdminDAO {
       return;
     }
     try {
-      cardaway = await conn.db(process.env.CARDAWAY_NS);
-      admins = await conn.db(process.env.CARDAWAY_NS).collection("admins");
+      cardaway = await conn.db(process.env.PYR_NS);
+      admins = await conn.db(process.env.PYR_NS).collection("admins");
     } catch (e) {
       console.error(
         `Unable to establish a collection handle in PostalesDAO: ${e}`

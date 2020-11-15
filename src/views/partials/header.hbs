@@ -37,11 +37,16 @@
             </li>
 
             <li id="nav-li">
-              <a href="./php/functions/cerrar_session.php">
+              <a href="/logOut">
                 Cerrar Sesión
               </a>
             </li>
-          </ul>
+	  </ul>
+	{{else}}
+	  <a href="/" class="brand-logo">
+            P&R
+          </a>
+
         {{/if}}
       </div>
     </nav>
@@ -72,19 +77,19 @@
                 </button>
               </a>
               <li id="nav-li">
-                <a href="./php/functions/cerrar_session.php">
+                <a href="/logOut">
                   Cerrar Sesión
                 </a>
               </li>
             </li>
           {{else if user}}
             <li id="nav-li">
-              <a href="./php/pages/user_page.php">
+              <a href="/perfil">
                 Mi cuenta
               </a>
             </li>
             <li id="nav-li">
-              <a href="./php/functions/cerrar_session.php">
+              <a href="/logOut">
                 Cerrar Sesión
               </a>
             </li>
@@ -118,18 +123,18 @@
             </a>
           </li>
           <li>
-            <a href="./php/functions/cerrar_session.php">
+            <a href="/logOut">
               Cerrar Sesion
             </a>
           </li>
         {{else if user}}
           <li id="nav-li">
-            <a href="./php/pages/user_page.php">
+            <a href="/perfil">
               Mi cuenta
             </a>
           </li>
           <li id="nav-li">
-            <a href="./php/functions/cerrar_session.php">
+            <a href="/logOut">
               Cerrar Sesión
             </a>
           </li>

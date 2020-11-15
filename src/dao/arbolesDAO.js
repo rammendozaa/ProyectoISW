@@ -1,16 +1,16 @@
-let postales;
+let arboles;
 let cardaway;
 import { ObjectId } from "bson"
 import {Date}       from "bson"
 
 export default class PostalesDAO {
   static async injectDB(conn) {
-    if (postales) {
+    if (arboles) {
       return;
     }
     try {
-      cardaway = await conn.db(process.env.CARDAWAY_NS);
-      postales = await conn.db(process.env.CARDAWAY_NS).collection("postales");
+      cardaway = await conn.db(process.env.PYR_NS);
+      arboles = await conn.db(process.env.PYR_NS).collection("arboles");
     } catch (e) {
       console.error(
         `Unable to establish a collection handle in PostalesDAO: ${e}`
@@ -20,7 +20,7 @@ export default class PostalesDAO {
   static async insertPostales(toInsertPostales = [{  }]) {
     let response = { insertedIds: undefined, errors: undefined };
     try {
-      let insertResult = await postales.insertMany(toInsertPostales, {
+      let insertResult = await arboles.insertMany(toInsertPostales, {
         ordered: false
       });
 
@@ -39,7 +39,7 @@ export default class PostalesDAO {
     });
     let response={nDeleted:undefined,errors:undefined};
     try {
-      let resultBulkWrite = await postales.bulkWrite(deleteOperations);
+      let resultBulkWrite = await arboles.bulkWrite(deleteOperations);
 	  response.nDeleted=resultBulkWrite.deletedCount
     } catch (e) {
       response.errors = e;
@@ -54,7 +54,7 @@ export default class PostalesDAO {
   }){
     let response
   try{
-   response= await postales.find(filter,{limit:postalesPerPage,skip:page*postalesPerPage}).toArray() 
+   response= await arboles.find(filter,{limit:postalesPerPage,skip:page*postalesPerPage}).toArray() 
   }catch(e){
     response=e
   }

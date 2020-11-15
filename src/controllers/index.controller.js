@@ -1,4 +1,4 @@
-import PostalesDAO from "../dao/postalesDAO.js"
+import arbolesDAO from "../dao/arbolesDAO.js"
 export default class  indexController{
 static renderIndex (req, res) {
   //res.render('index');
