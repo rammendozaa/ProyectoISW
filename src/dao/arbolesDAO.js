@@ -49,12 +49,22 @@ export default class ArbolesDAO {
 
   static async getArboles(){
     let response
-  try{
-   response= await arboles.find({},{projection:{"geometry.coordinates":1}}).toArray()
-  }catch(e){
-    response=e
+  try {
+   response = await arboles.find({},{projection:{"geometry.coordinates":1}}).toArray()
+  } catch(e) {
+    response = e
   }
     return response
+  }
+
+  static async getArbol(idArbol) {
+    let response;
+    try {
+      response = await arboles.find({"_id": idArbol}).toArray();
+    } catch (e) {
+      response = e;
+    }
+    return response;
   }
 
 }
