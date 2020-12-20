@@ -57,6 +57,7 @@ export default class ArbolesDAO {
     return response
   }
 
+// idArbol es ObjectId
   static async getArbol(idArbol) {
     let response;
     try {
