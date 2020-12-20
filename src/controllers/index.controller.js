@@ -12,7 +12,11 @@ static renderFormulario(req,res){
   res.render('formulario', {noButtons:true})  
 }
 
-
+static async getArboles(req,res){
+  var arboles=await arbolesDAO.getArboles();
+  console.log(arboles)
+  res.json(arboles)
+}
 
 
 }

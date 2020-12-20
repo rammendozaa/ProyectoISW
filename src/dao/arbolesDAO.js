@@ -47,14 +47,10 @@ export default class PostalesDAO {
     return response;
   }
 
-  static async getPostales({
-    page=0,
-    postalesPerPage=9,
-    filter={}
-  }){
+  static async getArboles(){
     let response
   try{
-   response= await arboles.find(filter,{limit:postalesPerPage,skip:page*postalesPerPage}).toArray() 
+   response= await arboles.find({},{projection:{"geometry.coordinates":1}}).toArray() 
   }catch(e){
     response=e
   }

@@ -1,18 +1,3 @@
-var wrapper = document.getElementById("wrapper");
-var loginForm = document.getElementById("datos");
-var content = document.getElementById("postalContainer");
-var page = 0;
-var postalCharger = document.getElementById("postalCharger");
-var filter = {};
-var categorias = [
-  "All",
-  "Amor",
-  "Fechas Festivas",
-  "Vintage",
-  "Comida",
-  "Paisajes",
-  "Otros"
-];
 var success;
 const myswal = Swal.mixin({
   onClose: () => {
