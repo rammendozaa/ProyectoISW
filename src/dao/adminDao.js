@@ -11,7 +11,7 @@ export default class AdminDAO {
       admins = await conn.db(process.env.PYR_NS).collection("admins");
     } catch (e) {
       console.error(
-        `Unable to establish a collection handle in PostalesDAO: ${e}`
+        `Unable to establish a collection handle in ArbolesDAO: ${e}`
       );
     }
   }
