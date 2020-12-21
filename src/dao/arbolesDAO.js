@@ -61,7 +61,7 @@ export default class ArbolesDAO {
   static async getArbol(idArbol) {
     let response;
     try {
-      response = await arboles.find({"_id": idArbol}).toArray();
+      response = await arboles.find({"_id": ObjectId(idArbol)}).toArray();
     } catch (e) {
       response = e;
     }

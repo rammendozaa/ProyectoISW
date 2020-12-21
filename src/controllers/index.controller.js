@@ -18,7 +18,7 @@ static async getArboles(req,res){
 }
 
 static async getArbol(req, res) {
-  var arbol = await arbolesDAO.getArbol(req.params.idArbol);
+  var arbol = await arbolesDAO.getArbol(req.query.idArbol);
   console.log(arbol)
   res.json(arbol)
 }
