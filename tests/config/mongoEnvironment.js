@@ -2,10 +2,10 @@ const MongoClient = require("mongodb").MongoClient;
 const NodeEnvironment = require("jest-environment-node");
 module.exports = class MongoEnvironment extends NodeEnvironment {
   async setup() {
-    if (!this.global.cardawayClient) {
+    if (!this.global.Client) {
       try {
-        this.global.cardawayClient = await MongoClient.connect(
-          process.env.CARDAWAY_DB_URI,
+        this.global.Client = await MongoClient.connect(
+          process.env.PYR_DB_URI,
           {
             useUnifiedTopology: true
           }
@@ -13,7 +13,7 @@ module.exports = class MongoEnvironment extends NodeEnvironment {
       } catch (e) {
         console.error(
           "Unable to stablish connection with db: " +
-            process.env.CARDAWAY_DB_URI +
+            process.env.PYR_DB_URI +
             "\nError:" +
             e
         );
@@ -23,7 +23,7 @@ module.exports = class MongoEnvironment extends NodeEnvironment {
   }
 
   async teardown() {
-    await this.global.cardawayClient.close();
+    await this.global.Client.close();
     await super.teardown();
   }
 

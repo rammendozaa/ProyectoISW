@@ -1,13 +1,13 @@
-import PostalesDAO from "../src/dao/postalesDAO"
+import ArbolesDAO from "../src/dao/arbolesDAO"
 import UsuariosDAO from "../src/dao/usersDAO.js"
 import AdminDAO from "../src/dao/adminDao.js"
 let insertedIds
 let usuarioId
 describe("DatabaseTest", () => {
   beforeAll(async () => {
-    await UsuariosDAO.injectDB(global.cardawayClient) 
-    await PostalesDAO.injectDB(global.cardawayClient)
-    await AdminDAO.injectDB(global.cardawayClient)
+    await UsuariosDAO.injectDB(global.Client) 
+    await ArbolesDAO.injectDB(global.Client)
+    await AdminDAO.injectDB(global.Client)
   })
 
   test("Can insert many postales", async () => {

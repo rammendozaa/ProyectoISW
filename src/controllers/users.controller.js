@@ -25,7 +25,7 @@ export default class userController {
     let response = await adminDao.login(req.body);
     if (response.loginResult == 1) {
       req.session.admin = true;
-      return res.json({ success: true, msg: req.body.username });
+      return res.json({ success: true, msg: req.body.username ,tipo:"admin"});
     } else if (response.loginResult == 0) {
       return res.json({ success: false, msg: "Contraseña Incorrecta" });
     } else {
@@ -55,6 +55,7 @@ static  renderPerfil(req,res){
 }
 static logOut(req,res){
   req.logout();
+  req.session.admin=false;
   res.redirect('/');
 }
 }
