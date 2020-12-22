@@ -3,7 +3,7 @@ let cardaway;
 import { ObjectId } from "bson"
 import {Date}       from "bson"
 
-export default class PostalesDAO {
+export default class ArbolesDAO {
   static async injectDB(conn) {
     if (arboles) {
       return;
@@ -13,14 +13,14 @@ export default class PostalesDAO {
       arboles = await conn.db(process.env.PYR_NS).collection("arboles");
     } catch (e) {
       console.error(
-        `Unable to establish a collection handle in PostalesDAO: ${e}`
+        `Unable to establish a collection handle in ArbolesDAO: ${e}`
       );
     }
   }
-  static async insertPostales(toInsertPostales = [{  }]) {
+  static async insertArboles(toInsertArboles = [{  }]) {
     let response = { insertedIds: undefined, errors: undefined };
     try {
-      let insertResult = await arboles.insertMany(toInsertPostales, {
+      let insertResult = await arboles.insertMany(toInsertArboles, {
         ordered: false
       });
 
@@ -31,8 +31,8 @@ export default class PostalesDAO {
     return response;
   }
 
-  static async deletePostales(toDeletePostalesIds = []) {
-    let deleteOperations = toDeletePostalesIds.map(function(id) {
+  static async deleteArboles(toDeleteArbolesIds = []) {
+    let deleteOperations = toDeleteArbolesIds.map(function(id) {
       let Operation = {};
       Operation["deleteOne"] = {filter:{_id:ObjectId(id) }};
       return Operation;
@@ -49,12 +49,23 @@ export default class PostalesDAO {
 
   static async getArboles(){
     let response
-  try{
-   response= await arboles.find({},{projection:{"geometry.coordinates":1}}).toArray() 
-  }catch(e){
-    response=e
+  try {
+   response = await arboles.find({},{projection:{"geometry.coordinates":1}}).toArray()
+  } catch(e) {
+    response = e
   }
     return response
+  }
+
+// idArbol es ObjectId
+  static async getArbol(idArbol) {
+    let response;
+    try {
+      response = await arboles.find({"_id": ObjectId(idArbol)}).toArray();
+    } catch (e) {
+      response = e;
+    }
+    return response;
   }
 
 }

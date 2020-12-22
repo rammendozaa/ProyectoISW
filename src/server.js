@@ -5,14 +5,17 @@ import passport from 'passport'
 import database from './database.js'  
 import session from  "express-session"
 import mongo from  "connect-mongo"
-
+var cors = require('cors')
 //Inicialization
 const app = express();
+
+app.use(cors())
+
 const MongoStore = mongo(session)
 require ("./config/passport.js")
 // settings
 
-let promesa = database.configDb();
+let promesa = database.configDb();app.use(cors())
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', handlebars({
   defaultLayout: 'main',

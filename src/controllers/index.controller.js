@@ -8,8 +8,7 @@ static renderIndex (req, res) {
 
 
 static renderFormulario(req,res){
-
-  res.render('formulario', {noButtons:true})  
+  res.render('formulario', {noButtons:true})
 }
 
 static async getArboles(req,res){
@@ -18,5 +17,9 @@ static async getArboles(req,res){
   res.json(arboles)
 }
 
-
+static async getArbol(req, res) {
+  var arbol = await arbolesDAO.getArbol(req.query.idArbol);
+  console.log(arbol)
+  res.json(arbol)
+}
 }

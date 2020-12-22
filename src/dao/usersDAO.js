@@ -11,7 +11,7 @@ export default class UsuariosDAO {
       usuarios = await conn.db(process.env.PYR_NS).collection("usuarios");
     } catch (e) {
       console.error(
-        `Unable to establish a collection handle in PostalesDAO: ${e}`
+        `Unable to establish a collection handle in arbolesDAO: ${e}`
       );
     }
   }
@@ -59,7 +59,7 @@ export default class UsuariosDAO {
             { _id: { $regex:textToSearch ,$options:'i'} },
             { nombre: { $regex:textToSearch,$options:'i'  } },
 	    {primerAp:{$regex:textToSearch,$options:'i'  } }
-           
+
           ]
         },
         {
