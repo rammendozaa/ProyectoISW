@@ -82,6 +82,7 @@ function validarCampos(json) {
     ret["json"]["passwd"] = json.password;
     ret["json"]["_id"] = json.correo;
     ret["json"]["fechaNac"] = json.fechaNac;
+    ret["json"]["delegacion"] = json.delegacion;
   }
   return ret;
 }
