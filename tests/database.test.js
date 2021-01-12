@@ -1,19 +1,19 @@
 import ArbolesDAO from "../src/dao/arbolesDAO"
 import UsuariosDAO from "../src/dao/usersDAO.js"
 import AdminDAO from "../src/dao/adminDao.js"
+import ServiciosDAO from "../src/dao/servicioDAO.js"
 let insertedIds
 let usuarioId
+let servicioId
 describe("DatabaseTest", () => {
   beforeAll(async () => {
-<<<<<<< HEAD
     await UsuariosDAO.injectDB(global.Client) 
     await ArbolesDAO.injectDB(global.Client)
     await AdminDAO.injectDB(global.Client)
-=======
-    await UsuariosDAO.injectDB(global.cardawayClient)
-    await ArbolesDAO.injectDB(global.cardawayClient)
-    await AdminDAO.injectDB(global.cardawayClient)
->>>>>>> 22deaa62bdd07868ae88fe39bef7e51bac0e01de
+    await UsuariosDAO.injectDB(global.Client)
+    await ArbolesDAO.injectDB(global.Client)
+    await AdminDAO.injectDB(global.Client)
+    await ServiciosDAO.injectDB(global.Client) 
   })
 
   test("Can insert many arboles", async () => {
@@ -23,10 +23,10 @@ describe("DatabaseTest", () => {
       {brief:"osito-de-peluche",categoria:"Vintage",extension:"jpeg"},
       {brief:"flores",categoria:"Paisajes",extension:"jpg"},
     ]
-    const insertPostalsResult = await ArbolesDAO.insertArboles(testArboles)
-    insertedIds=insertPostalsResult.insertedIds
+    const insertArbolResult = await ArbolesDAO.insertArboles(testArboles)
+    insertedIds=insertArbolResult.insertedIds
     expect(insertedIds.length).toEqual(4)
-    expect(insertPostalsResult.errors).toBeUndefined()
+    expect(insertArbolResult.errors).toBeUndefined()
 
   })
   test ("Can delete many arboles",async()=>{
@@ -92,4 +92,17 @@ describe("DatabaseTest", () => {
 
 
   })
+test ("Can Insert a Servicio",async ()=>{
+  const result = await ServiciosDAO.insertServicio
+  ({descripcionServicio:"Servicio de Ejemplo",nombreServicio:"Servicio de Ejemplo"})
+ servicioId=result.insertedId 
+expect (result.errors).toBeUndefined
 })
+  test("Can delete a Servicio",async ()=>{
+   const result= await ServiciosDAO.deleteServicio(servicioId)
+ expect(result.deletedCount).toEqual(1) 
+  })
+})
+
+
+

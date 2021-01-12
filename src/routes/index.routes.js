@@ -8,4 +8,5 @@ router.get("/", controller.renderIndex);
 router.get("/registro",controller.renderFormulario)
 router.get("/getArboles",controller.getArboles)
 router.get("/getArbol", controller.getArbol)
+router.get("/registrarServicio",controller.registrarServicio)
 module.exports =  router;
