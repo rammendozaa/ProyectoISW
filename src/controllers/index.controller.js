@@ -23,7 +23,7 @@ static async getArbol(req, res) {
   console.log(arbol)
   res.json(arbol)
 }
-static async registrarServicio(){
+static async registrarServicio(req, res){
      var result= await servicioDAO.insertServicio(req.body)
   res.json(result)
 }
