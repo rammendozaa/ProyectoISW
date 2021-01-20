@@ -27,4 +27,10 @@ static async registrarServicio(req, res){
      var result= await servicioDAO.insertServicio(req.body)
   res.json(result)
 }
+
+static async registrarArboles(req, res) {
+  var result = await arbolesDAO.insertArboles(req.body)
+  res.json(result)
+}
+
 }

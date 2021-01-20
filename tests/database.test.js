@@ -7,13 +7,13 @@ let usuarioId
 let servicioId
 describe("DatabaseTest", () => {
   beforeAll(async () => {
-    await UsuariosDAO.injectDB(global.Client) 
+    await UsuariosDAO.injectDB(global.Client)
     await ArbolesDAO.injectDB(global.Client)
     await AdminDAO.injectDB(global.Client)
     await UsuariosDAO.injectDB(global.Client)
     await ArbolesDAO.injectDB(global.Client)
     await AdminDAO.injectDB(global.Client)
-    await ServiciosDAO.injectDB(global.Client) 
+    await ServiciosDAO.injectDB(global.Client)
   })
 
   test("Can insert many arboles", async () => {
@@ -95,14 +95,11 @@ describe("DatabaseTest", () => {
 test ("Can Insert a Servicio",async ()=>{
   const result = await ServiciosDAO.insertServicio
   ({descripcionServicio:"Servicio de Ejemplo",nombreServicio:"Servicio de Ejemplo"})
- servicioId=result.insertedId 
+ servicioId=result.insertedId
 expect (result.errors).toBeUndefined
 })
   test("Can delete a Servicio",async ()=>{
    const result= await ServiciosDAO.deleteServicio(servicioId)
- expect(result.deletedCount).toEqual(1) 
+ expect(result.deletedCount).toEqual(1)
   })
 })
-
-
-
