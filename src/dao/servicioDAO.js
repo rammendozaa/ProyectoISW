@@ -8,6 +8,7 @@ export default class servicioDAO {
     try {
       database = await conn.db(process.env.PYR_NS);
       servicios = await conn.db(process.env.PYR_NS).collection("servicios");
+      console.log(servicios)
     } catch (e) {
       console.error(
         `Unable to establish a collection handle in ArbolesDAO: ${e}`
