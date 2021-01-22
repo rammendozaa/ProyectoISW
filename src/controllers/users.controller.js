@@ -18,6 +18,20 @@ export default class userController {
     }
     res.json({ errors: result.errors });
   }
+
+  static async getUsuario(req, res) {
+    let usuario = await usuariosDao.getUsuario(req.query.email)
+    res.json(usuario)
+  }
+
+  static async updateUsuario(req, res) {
+    let usuario = await usuariosDao.updateUsuario(req.body.params)
+    if (usuario) {
+      res.json({ success: true, usuario })
+    } else
+    res.json({ success: false })
+  }
+
   static async logIn(req, res) {
     if (!(req.body.username && req.body.password)) {
       return res.json({ success: false, msg: "Ocurrio un error" });
@@ -25,18 +39,18 @@ export default class userController {
     let response = await adminDao.login(req.body);
     if (response.loginResult == 1) {
       req.session.admin = true;
-      return res.json({ success: true, msg: req.body.username ,tipo:"admin"});
+      return res.json({ success: true, msg: req.body.username, tipo: "admin" });
     } else if (response.loginResult == 0) {
       return res.json({ success: false, msg: "Contraseña Incorrecta" });
     } else {
-      passport.authenticate("local", function(err, user, info) {
+      passport.authenticate("local", function (err, user, info) {
         if (err) {
           return res.json(err);
         }
         if (!user) {
           return res.json(info);
         }
-        req.logIn(user, function(err) {
+        req.logIn(user, function (err) {
           if (err) {
             return res.json(err);
           }
@@ -45,19 +59,19 @@ export default class userController {
       })(req, res);
     }
   }
-static  renderPerfil(req,res){
-  if(req.user){
-    res.render('usuario/perfil');
+  static renderPerfil(req, res) {
+    if (req.user) {
+      res.render('usuario/perfil');
+    }
+    else {
+      res.render('index')
+    }
   }
-  else{
-    res.render('index')
+  static logOut(req, res) {
+    req.logout();
+    req.session.admin = false;
+    res.redirect('/');
   }
-}
-static logOut(req,res){
-  req.logout();
-  req.session.admin=false;
-  res.redirect('/');
-}
 }
 
 function validarCampos(json) {

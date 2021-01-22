@@ -43,10 +43,30 @@ export default class UsuariosDAO {
       return { loginResult: 0, usuario: usuario };
     }
   }
-  static async getUsuario({ email }) {
-    let usuario = usuarios.findOne({ _id: email });
-    return usuario;
+  static async getUsuario(email) {
+    let response;
+    try {
+      response = await usuarios.findOne({ "_id": email });
+    } catch (e) {
+      response = e;
+    }
+    return response;
   }
+
+  static async updateUsuario(usuario) {
+    let modified;
+    let response;
+    try {
+      modified = await usuarios.updateOne({ "_id": usuario.email }, { "$set": { "nombre": usuario.nombre, "primerAp": usuario.primerAp, "segundoAp": usuario.segundoAp, "delegacion": usuario.delegacion } })
+      if (modified) {
+        response = { usuario }
+      }
+    } catch (e) {
+      response = false;
+    }
+    return response;
+  }
+
   static async getUsuarios({
     textToSearch = null,
     page = 0,
@@ -56,9 +76,9 @@ export default class UsuariosDAO {
       .find(
         {
           $or: [
-            { _id: { $regex:textToSearch ,$options:'i'} },
-            { nombre: { $regex:textToSearch,$options:'i'  } },
-	    {primerAp:{$regex:textToSearch,$options:'i'  } }
+            { _id: { $regex: textToSearch, $options: 'i' } },
+            { nombre: { $regex: textToSearch, $options: 'i' } },
+            { primerAp: { $regex: textToSearch, $options: 'i' } }
 
           ]
         },
