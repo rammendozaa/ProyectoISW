@@ -5,6 +5,7 @@ const router = express.Router();
 import controller from  "../controllers/admin.controller.js"
 
 router.get("/admin", controller.renderAdmin);
+router.post("/registroAdministrador", controller.agregarAdministrador);
 router.get("/getUsuarios", controller.getUsuarios)
 router.delete("/deleteUsuario",controller.deleteUsuario)
 module.exports =  router;
