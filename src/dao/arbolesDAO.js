@@ -1,7 +1,7 @@
 let arboles;
 let cardaway;
 import { ObjectId } from "bson"
-import {Date}       from "bson"
+import { Date } from "bson"
 
 export default class ArbolesDAO {
   static async injectDB(conn) {
@@ -18,35 +18,46 @@ export default class ArbolesDAO {
     }
   }
 
-  static async insertArbol(toInsertArbol) {
-    let response = {insertedId: undefined, errors: undefined};
-    let insertResult = await arboles.insertOne(toInsertArbol);
+  static async insertArbol(arbol) {
+    console.log(arbol)
+    let data = {
+      datasetid: "programa-reto-verde",
+      fields: arbol,
+      geometry: {
+        type: "Point",
+        coordinates: [parseFloat(arbol.coordenadas.longitud), parseFloat(arbol.coordenadas.latitud)]
+    },
+    }
+    console.log(data);
+ 
+    let response = { insertedId: undefined, errors: undefined };
+    let insertResult = await arboles.insertOne(data);
     response.insertedId = insertResult.insertedIds;
     return response;
   }
 
   static async deleteArbol(toDeleteArbol) {
-    let response = {n : undefined}
-    let deleteResult = await arboles.deleteOne({"_id": ObjectId(toDeleteArbol)});
+    let response = { n: undefined }
+    let deleteResult = await arboles.deleteOne({ "_id": ObjectId(toDeleteArbol) });
     response.n = deleteResult.deletedCount;
     return response;
   }
 
-  static async getArboles(){
+  static async getArboles() {
     let response
-  try {
-   response = await arboles.find({},{projection:{"geometry.coordinates":1}}).toArray()
-  } catch(e) {
-    response = e
-  }
+    try {
+      response = await arboles.find({}, { projection: { "geometry.coordinates": 1 } }).toArray()
+    } catch (e) {
+      response = e
+    }
     return response
   }
 
-// idArbol es ObjectId
+  // idArbol es ObjectId
   static async getArbol(idArbol) {
     let response;
     try {
-      response = await arboles.find({"_id": ObjectId(idArbol)}).toArray();
+      response = await arboles.find({ "_id": ObjectId(idArbol) }).toArray();
     } catch (e) {
       response = e;
     }
