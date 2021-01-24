@@ -14,7 +14,7 @@ export default class servicioDAO {
       );
     }
   }
-  
+
   static async insertServicio(toInsertServicio) {
     let response = { insertedId: undefined };
     let insertResult = await servicios.insertOne(toInsertServicio);
@@ -25,6 +25,51 @@ export default class servicioDAO {
     let response={deletedCount:undefined}
     let result = await servicios.deleteOne({_id:toDeleteAdminId})
     response.deletedCount= result.deletedCount
+    return response
+  }
+
+  static async getServicioByIdUser(idUser) {
+    let response
+    try {
+      response = await servicios.find({"correo": idUser}).toArray()
+    } catch (e) {
+      response = e
+    }
+    return response
+  }
+
+/*
+  static async getServicioByDelegacion(delegacion) {
+    let response
+    try {
+      response = await servicios.find()
+    } catch (e) {
+      response = e
+    }
+    return response
+  }
+*/
+  static async getServicioByIdServicio(servicioId) {
+    let response
+    try {
+      response = await servicios.find({"_id" : ObjectId(servicioId)}).toArray()
+    } catch (e) {
+      response = e
+    }
+    return response
+  }
+
+  static async updateServicio(servicio) {
+    let modified
+    let response
+    try {
+      modified = await servicios.updateOne({"_id": ObjectId(servicio.idServicio)}, {"$set": {"status":servicio.status}})
+      if (modified) {
+        response = {servicio}
+      }
+    } catch (e) {
+      response = false
+    }
     return response
   }
 }

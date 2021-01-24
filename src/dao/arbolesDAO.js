@@ -17,33 +17,18 @@ export default class ArbolesDAO {
       );
     }
   }
-  static async insertArboles(toInsertArboles = [{  }]) {
-    let response = { insertedIds: undefined, errors: undefined };
-    try {
-      let insertResult = await arboles.insertMany(toInsertArboles, {
-        ordered: false
-      });
 
-      response.insertedIds = Object.values(insertResult.insertedIds);
-    } catch (e) {
-      response.errors = e;
-    }
+  static async insertArbol(toInsertArbol) {
+    let response = {insertedId: undefined, errors: undefined};
+    let insertResult = await arboles.insertOne(toInsertUsuario);
+    response.insertedId = insertResult.insertedIds;
     return response;
   }
 
-  static async deleteArboles(toDeleteArbolesIds = []) {
-    let deleteOperations = toDeleteArbolesIds.map(function(id) {
-      let Operation = {};
-      Operation["deleteOne"] = {filter:{_id:ObjectId(id) }};
-      return Operation;
-    });
-    let response={nDeleted:undefined,errors:undefined};
-    try {
-      let resultBulkWrite = await arboles.bulkWrite(deleteOperations);
-	  response.nDeleted=resultBulkWrite.deletedCount
-    } catch (e) {
-      response.errors = e;
-    }
+  static async deleteArbol(toDeleteArbol) {
+    let response = {n : undefined}
+    let deleteResult = await arboles.deleteOne({"_id": ObjectId(toDeleteArbol)});
+    response.n = deleteResult.deletedCount;
     return response;
   }
 

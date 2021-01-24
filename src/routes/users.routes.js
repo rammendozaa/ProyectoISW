@@ -10,4 +10,4 @@ router.get("/perfil",controller.renderPerfil);
 router.get("/usuario",controller.getUsuario);
 router.put("/usuario",controller.updateUsuario);
 router.get("/logout",controller.logOut);
-  module.exports = router;
+module.exports = router;

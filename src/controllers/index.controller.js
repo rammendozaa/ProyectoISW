@@ -33,4 +33,33 @@ static async registrarArboles(req, res) {
   res.json(result)
 }
 
+static async getServicioByIdUser(req, res) {
+  var servicio = await servicioDAO.getServicioByIdUser(req.query.idUser)
+  console.log(servicio)
+  res.json(servicio)
+}
+
+/*
+static async getServicioByDelegacion(req, res) {
+  var servicio = await servicioDAO.getServicioByDelegacion(req.query.delegacion)
+  console.log(servicio)
+  res.json(servicio)
+}
+*/
+
+static async getServicioByIdServicio(req, res)  {
+  var servicio = await servicioDAO.getServicioByIdServicio(req.query.idServicio)
+  console.log(servicio)
+  res.json(servicio)
+}
+
+static async updateServicio(req, res) {
+  let servicio = await servicioDAO.updateServicio(req.body.estado)
+  if (servicio) {
+    res.json({success: true, usuario})
+  } else {
+    res.json({success: false})
+  }
+}
+
 }
