@@ -45,13 +45,11 @@ static async getServicioByIdUser(req, res) {
   res.json(servicio)
 }
 
-/*
-static async getServicioByDelegacion(req, res) {
-  var servicio = await servicioDAO.getServicioByDelegacion(req.query.delegacion)
+static async getServicioByAlcaldia(req, res) {
+  var servicio = await servicioDAO.getServicioByAlcaldia(req.query.alcaldia)
   console.log(servicio)
   res.json(servicio)
 }
-*/
 
 static async getServicioByIdServicio(req, res)  {
   var servicio = await servicioDAO.getServicioByIdServicio(req.query.idServicio)

@@ -38,17 +38,16 @@ export default class servicioDAO {
     return response
   }
 
-/*
-  static async getServicioByDelegacion(delegacion) {
+  static async getServicioByAlcaldia(alcaldia) {
     let response
     try {
-      response = await servicios.find()
+      response = await servicios.find({"alcaldia" : alcaldia}).toArray();
     } catch (e) {
       response = e
     }
     return response
   }
-*/
+
   static async getServicioByIdServicio(servicioId) {
     let response
     try {
