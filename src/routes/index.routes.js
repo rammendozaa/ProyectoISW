@@ -13,5 +13,5 @@ router.get("/getServicioByIdUser", controller.getServicioByIdUser)
 router.get("/getServicioByIdServicio", controller.getServicioByIdServicio)
 router.post("/updateServicio", controller.updateServicio)
 router.post("/registrarServicio",controller.registrarServicio)
-router.get("/insertArbol", controller.insertArbol)
+router.post("/insertArbol", controller.insertArbol)
 module.exports =  router;

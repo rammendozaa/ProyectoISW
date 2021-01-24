@@ -20,7 +20,7 @@ export default class ArbolesDAO {
 
   static async insertArbol(toInsertArbol) {
     let response = {insertedId: undefined, errors: undefined};
-    let insertResult = await arboles.insertOne(toInsertUsuario);
+    let insertResult = await arboles.insertOne(toInsertArbol);
     response.insertedId = insertResult.insertedIds;
     return response;
   }
