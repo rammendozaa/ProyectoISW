@@ -18,6 +18,12 @@ static async getArboles(req,res){
   res.json(arboles)
 }
 
+static async insertArbol(req, res) {
+  var arbol = await arbolesDAO.insertArbol(req.body);
+  console.log(arbol)
+  res.json(arbol)
+}
+
 static async getArbol(req, res) {
   var arbol = await arbolesDAO.getArbol(req.query.idArbol);
   console.log(arbol)
