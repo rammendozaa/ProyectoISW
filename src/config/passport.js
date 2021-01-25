@@ -13,7 +13,7 @@ passport.use(new LocalStrategy(
     return done(null, false ,{success:false, msg:"Usuario no regristrado"});
   } else if(loginResult == 1){
     // Match Password's User
-      return done(null, usuario,{success:true,msg:usuario.nombre,tipo:usuario.tipo});
+      return done(null, usuario,{success:true,msg:usuario.nombre,tipo:usuario.tipodeusuario});
   }
     else {
       return done(null, false,{success:false,msg:"Contraseña Incorrecta"});

@@ -61,6 +61,7 @@ function validarCamposAdmin(json) {
   if (ret.errors.length == 0) {
     ret["json"] = {};
     ret["json"]["nombre"] = json.nombre;
+    ret["json"]["correo"] = json.email;
     ret["json"]["passwd"] = json.password;
   }
   return ret;

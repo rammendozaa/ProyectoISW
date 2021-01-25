@@ -16,29 +16,36 @@ export default class AdminDAO {
     }
   }
   static async login({ username, password }) {
-  let admin = await admins.findOne({_id:username})
-  if(admin == null){
-    return {loginResult:-1,usuario:null}
+    let admin = await admins.findOne({ _id: username });
+    if (admin == null) {
+      return { loginResult: -1, usuario: null }
+    }
+    if (await bcrypt.compare(password, admin.passwd)) {
+
+      return { loginResult: 1, usuario: admin._id }
+    }
+    else {
+      return { loginResult: 0, usuario: null }
+    }
   }
-  if(await bcrypt.compare(password,admin.password)){
-    return {loginResult:1,usuario:admin._id}
-  }
-  else{
-    return {loginResult:0,usuario:null}
-  }
-  }
+
   static async insertAdmin(toInsertAdmin) {
-    if (toInsertAdmin.password)
-      toInsertAdmin.password = await bcrypt.hash(toInsertAdmin.password, 10);
+    console.log(toInsertAdmin);
+    if (toInsertAdmin.passwd)
+      toInsertAdmin.passwd = await bcrypt.hash(toInsertAdmin.passwd, 10);
+    toInsertAdmin._id = toInsertAdmin.correo;
+    delete toInsertAdmin.correo;
+    console.log(toInsertAdmin);
+
     let response = { insertedId: undefined };
     let insertResult = await admins.insertOne(toInsertAdmin);
     response.insertedId = insertResult.insertedId;
     return response;
   }
-  static async deleteAdmin(toDeleteAdminId){
-    let response={deletedCount:undefined}
-    let result = await admins.deleteOne({_id:toDeleteAdminId})
-    response.deletedCount= result.deletedCount
+  static async deleteAdmin(toDeleteAdminId) {
+    let response = { deletedCount: undefined }
+    let result = await admins.deleteOne({ _id: toDeleteAdminId })
+    response.deletedCount = result.deletedCount
     return response
   }
 }

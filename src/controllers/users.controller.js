@@ -37,6 +37,8 @@ export default class userController {
       return res.json({ success: false, msg: "Ocurrio un error" });
     }
     let response = await adminDao.login(req.body);
+    console.log("E WE");
+    console.log(req.body);
     if (response.loginResult == 1) {
       req.session.admin = true;
       return res.json({ success: true, msg: req.body.username, tipo: "admin" });
