@@ -1,4 +1,4 @@
-let servicios;
+let servicios, usuarios;
 let database;
 export default class servicioDAO {
   static async injectDB(conn) {
@@ -8,6 +8,7 @@ export default class servicioDAO {
     try {
       database = await conn.db(process.env.PYR_NS);
       servicios = await conn.db(process.env.PYR_NS).collection("servicios");
+      usuarios = await conn.db(process.env.PYR_NS).collection("usuarios");
     } catch (e) {
       console.error(
         `Unable to establish a collection handle in ArbolesDAO: ${e}`
@@ -39,13 +40,14 @@ export default class servicioDAO {
   }
 
   static async getServicioByAlcaldia(alcaldia) {
-    let response
+    let responseAlcaldia, responseServicios
     try {
-      response = await servicios.find({"alcaldia" : alcaldia}).toArray();
+      responseAlcaldia = await usuarios.findOne({"_id" : alcaldia});
+      responseServicios = await servicios.find({"alcaldia" : responseAlcaldia.delegacion}).toArray();
     } catch (e) {
-      response = e
+      responseServicios = e
     }
-    return response
+    return responseServicios
   }
 
   static async getServicioByIdServicio(servicioId) {
