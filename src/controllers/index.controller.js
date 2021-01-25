@@ -58,9 +58,9 @@ static async getServicioByIdServicio(req, res)  {
 }
 
 static async updateServicio(req, res) {
-  let servicio = await servicioDAO.updateServicio(req.body.estado)
+  let servicio = await servicioDAO.updateServicio(req.body)
   if (servicio) {
-    res.json({success: true, usuario})
+    res.json({success: true, servicio})
   } else {
     res.json({success: false})
   }

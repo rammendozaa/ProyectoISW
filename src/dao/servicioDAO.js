@@ -1,5 +1,7 @@
 let servicios, usuarios;
 let database;
+let ObjectId = require('mongodb').ObjectID;
+
 export default class servicioDAO {
   static async injectDB(conn) {
     if (servicios) {
@@ -63,12 +65,20 @@ export default class servicioDAO {
   static async updateServicio(servicio) {
     let modified
     let response
+    console.log("Servicio a modificar:")
+    console.log(servicio.idServicio)
+    console.log(servicio.estado)
+    
     try {
-      modified = await servicios.updateOne({"_id": ObjectId(servicio.idServicio)}, {"$set": {"status":servicio.status}})
+      modified = await servicios.updateOne({"_id": ObjectId(servicio.idServicio)}, {"$set": {"estado":servicio.estado}})
       if (modified) {
         response = {servicio}
+        console.log(response)
       }
+
     } catch (e) {
+      console.log("error al actualizar el estado del servicio")
+      console.log(e)
       response = false
     }
     return response
